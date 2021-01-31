@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/tx
+   http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--扫描Service里面相关的bean-->
+    <context:component-scan base-package="com.my.service"/>
+    <!--MusicServiceImpl注入到IOC容器中-->
+    <bean id="MusicServiceImpl" class="com.my.service.MusicServiceImpl">
+        <property name="musicMapper" ref="musicMapper"/>
+    </bean>
+    <bean id="UserServiceImpl" class="com.my.service.UserServiceImpl">
+        <property name="userMapper" ref="userMapper"/>
+    </bean>
+    <bean id="MvServiceImpl" class="com.my.service.MvServiceImpl">
+        <property name="mvMapper" ref="mvMapper"/>
+    </bean>
+    <!-- 事物管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+
+</beans>
