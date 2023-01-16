@@ -4,20 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.my.dao.UserMapper">
-  <!-- 查找用户-->
+    <!-- 查找用户-->
     <select id="findUser" resultType="User">
-        select * from  musicbox.user where name = #{userName} and password = #{passWord}
+        select * from  music_player.user where username = #{userName} and password = #{passWord}
     </select>
     <!--添加用户-->
     <insert id="addUser" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="User">
-        insert into musicbox.user values (#{id},#{name},#{password})
+        insert into music_player.user values (#{id},#{name},#{password})
     </insert>
     <!--通过名字查看用户-->
     <select id="findUserByName" resultType="User">
-        select * from musicbox.user where name = #{name}
+        select * from music_player.user where username = #{name}
     </select>
     <!--删除用户-->
     <delete id="deleteUserById" parameterType="int">
-        delete from musicbox.user where id=#{id};
+        delete from music_player.user where id=#{id};
     </delete>
 </mapper>

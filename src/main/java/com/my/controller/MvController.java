@@ -156,7 +156,7 @@ public class MvController {
             //数据库删除还要删除服务器的
             if(ret == 1){
                 //删除服务器上的
-                File file = new File("/root/apache-tomcat-8.5.61/webapps/MusicPlayer/"+ mv.getUrl()+".mp4");
+                File file = new File("/jolin/apache-tomcat-8.5.84/webapps/MusicPlayer/"+ mv.getUrl()+".mp4");
                 if(file.delete()){
                     return_map.put("msg",true);
                 }else {
@@ -179,7 +179,7 @@ public class MvController {
 
     }
 
-    private final String SavePath="/root/apache-tomcat-8.5.61/webapps/MusicPlayer/mv";
+    private final String SavePath="/jolin/apache-tomcat-8.5.84/webapps/MusicPlayer/mv";
 
     //7、上传添加歌曲
     @RequestMapping("/upload")

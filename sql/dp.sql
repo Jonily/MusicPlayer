@@ -17,8 +17,7 @@ create table music
     title  varchar(50)  not null,
     singer varchar(30)  not null,
     time   varchar(13)  not null,
-    url    varchar(100) not null,
-    userid int          not null
+    url    varchar(100) not null
 );
 create table mv
 (
@@ -27,8 +26,7 @@ create table mv
     title  varchar(50)  not null,
     singer varchar(30)  not null,
     time   varchar(13)  not null,
-    url    varchar(100) not null,
-    userid int          not null
+    url    varchar(100) not null
 );
 create table lovemv
 (
