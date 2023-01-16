@@ -1,6 +1,6 @@
 
-create database 'musicserver' character set utf8;
-use 'musicserver';
+create database music_player character set utf-8;
+use 'music_player';
 
 create table user
 (

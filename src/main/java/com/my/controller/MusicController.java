@@ -5,7 +5,8 @@ package com.my.controller;
 import com.my.pojo.Music;
 import com.my.pojo.User;
 import com.my.service.MusicService;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,6 +30,8 @@ import java.util.*;
 @Controller
 @RequestMapping("/music")
 public class MusicController {
+    private static Logger LOG = LoggerFactory.getLogger(MusicController.class);
+
     //controller层调用service层
     @Autowired
     @Qualifier("MusicServiceImpl")
@@ -155,7 +158,7 @@ public class MusicController {
                 int ret = musicService.deleteMusicById(id);
                 if(ret == 1){
                     //删除服务器上的
-                    File file = new File("/root/apache-tomcat-8.5.61/webapps/"+music.getUrl()+".mp3");
+                    File file = new File("/jolin/apache-tomcat-8.5.84/webapps/"+music.getUrl()+".mp3");
                     if(file.delete()){
                         count+=ret;
                     }else {
@@ -196,6 +199,7 @@ public class MusicController {
         String idStr = request.getParameter("id");
         int id = Integer.parseInt(idStr);
         Map<String,Object> return_map = new HashMap<String ,Object>();
+        LOG.info("userName :{}",userName);
         //msg    true
         if(userName.equals("admin")){
             Music music = musicService.findMusicById(id);
@@ -210,7 +214,7 @@ public class MusicController {
             //数据库删除还要删除服务器的
             if(ret == 1){
                 //删除服务器上的
-                File file = new File("/root/apache-tomcat-8.5.61/webapps/MusicPlayer/"+music.getUrl()+".mp3");
+                File file = new File("/jolin/apache-tomcat-8.5.84/webapps/MusicPlayer/"+music.getUrl()+".mp3");
                 if(file.delete()){
                     return_map.put("msg",true);
                 }else {
@@ -233,7 +237,7 @@ public class MusicController {
 
     }
 
-    private final String SavePath="/root/apache-tomcat-8.5.61/webapps/MusicPlayer/music";
+    private final String SavePath="/jolin/apache-tomcat-8.5.84/webapps/MusicPlayer/music";
 
     //7、上传添加歌曲
     @RequestMapping("/upload")

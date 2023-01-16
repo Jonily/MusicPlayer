@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>OnlieMusic</artifactId>
+    <artifactId>MusicPlayer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <!--依赖导入 junit、数据库驱动、连接池、servlet、jsp、mybatis、mybatis-spring、spring、Lombok-->
@@ -102,11 +102,18 @@
             <artifactId>commons-fileupload</artifactId>
             <version>1.3.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.tencent.tbds</groupId>
+            <artifactId>tbds-goblin-job-flume</artifactId>
+            <version>5.2.0.1</version>
+        </dependency>
 
 
     </dependencies>
+    <packaging>war</packaging>
 
     <build>
+        <finalName>MusicPlayer</finalName>
         <resources>
             <resource>
                 <directory>src/main/java</directory>
