@@ -192,6 +192,7 @@ public class MusicController {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
+        LOG.info("HttpServletRequest :{}",request);
 
         User user = (User)request.getSession().getAttribute("user");
         String userName = user.getName();
@@ -219,16 +220,12 @@ public class MusicController {
                     return_map.put("msg",true);
                 }else {
                     return_map.put("msg",false);
-
                 }
-
             }else {
                 return_map.put("msg",false);
-
             }
         }else {
             return_map.put("msg",false);
-
         }
 
         //将map返回给前端
